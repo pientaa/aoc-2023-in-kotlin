@@ -21,3 +21,12 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  * The cleaner shorthand for printing output.
  */
 fun Any?.println() = println(this)
+
+
+/**
+ * Splits the string by [delimiter] and trims each resulting substring.
+ *
+ * @param delimiter Character to split the string.
+ * @return List of trimmed substrings.
+ */
+fun String.splitAndTrim(delimiter: Char) = split(delimiter).map { it.trim() }
