@@ -3,12 +3,19 @@ import java.security.MessageDigest
 import java.util.*
 import kotlin.io.path.Path
 import kotlin.io.path.readLines
+import kotlin.io.path.readText
 
 /**
  * Reads lines from the given input txt file.
  */
 fun readInput(name: String): List<String> =
     Path("src/${name.take(5).lowercase(Locale.getDefault())}/$name.txt").readLines()
+
+/**
+ * Reads Text from the given input txt file.
+ */
+fun readText(name: String): String =
+    Path("src/${name.take(5).lowercase(Locale.getDefault())}/$name.txt").readText()
 
 /**
  * Converts string to md5 hash.
