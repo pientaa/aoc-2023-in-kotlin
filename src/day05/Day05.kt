@@ -34,12 +34,16 @@ private fun getTheLowestLocationUsingRanges(almanacParts: List<String>, seeds: L
     val listOfMaps: List<List<Pair<LongRange, Long>>> = almanacParts.getTheListOfMaps()
 
     return listOfMaps.fold(seeds) { acc: List<LongRange>, map: List<Pair<LongRange, Long>> ->
+        val usedInMerges = mutableListOf<LongRange>()
         acc.flatMap { inputRange ->
             val merges: List<LongRange> = map.mapNotNull { (range, diff) ->
-                inputRange.mergeWith(range)?.let { LongRange(it.first + diff, it.last + diff) }
+                inputRange.mergeWith(range)?.let {
+                    usedInMerges.add(it)
+                    LongRange(it.first + diff, it.last + diff)
+                }
             }
 
-            if (merges.isNotEmpty()) merges + inputRange.missingRanges(merges)
+            if (usedInMerges.isNotEmpty()) merges + inputRange.missingRanges(usedInMerges)
             else listOf(inputRange)
         }
     }.minOf { it.first }
