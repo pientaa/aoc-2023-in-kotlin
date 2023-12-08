@@ -17,10 +17,7 @@ fun main() {
         return getTheLowestLocationUsingRanges(almanacParts, seeds)
     }
 
-    val testInput = readText("Day05_test")
-    val input = readText("Day05")
-
-    runParts(input, testInput, ::part1, ::part2)
+    runParts(dayNumber = 5, readFromFileFn = ::readText, partOneFn = ::part1, partTwoFn = ::part2)
 }
 
 private fun getTheLowestLocationUsingRanges(almanacParts: List<String>, seeds: List<LongRange>): Long {

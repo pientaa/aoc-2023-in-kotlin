@@ -16,10 +16,7 @@ fun main() {
             .sumOf { it.red * it.green * it.blue }
     }
 
-    val testInput = readInput("Day02_test")
-    val input = readInput("Day02")
-
-    runParts(input, testInput, ::part1, ::part2)
+    runParts(dayNumber = 2, readFromFileFn = ::readInput, partOneFn = ::part1, partTwoFn = ::part2)
 }
 
 fun List<String>.processGame() = map { line ->

@@ -44,10 +44,7 @@ fun main() {
             .sum()
     }
 
-    val testInput = readInput("Day03_test")
-    val input = readInput("Day03")
-
-    runParts(input, testInput, ::part1, ::part2)
+    runParts(dayNumber = 3, readFromFileFn = ::readInput, partOneFn = ::part1, partTwoFn = ::part2)
 }
 
 /**

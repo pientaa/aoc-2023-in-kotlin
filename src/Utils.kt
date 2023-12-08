@@ -49,3 +49,18 @@ fun <T, R> runParts(input: T, testInput: T, partOne: (T) -> R, partTwo: (T) -> R
     println("Part two:")
     println(partTwo(input))
 }
+
+fun <T, R> runParts(dayNumber: Int, readFromFileFn: (String) -> T, partOneFn: (T) -> R, partTwoFn: (T) -> R) {
+    val number = if (dayNumber < 10) "0$dayNumber" else dayNumber
+    val input = readFromFileFn("Day$number")
+    val testInput = readFromFileFn("Day${number}_test")
+
+    println("Part one test:")
+    println(partOneFn(testInput))
+    println("Part one:")
+    println(partOneFn(input))
+    println("Part two test:")
+    println(partTwoFn(testInput))
+    println("Part two:")
+    println(partTwoFn(input))
+}

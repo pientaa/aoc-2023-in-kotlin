@@ -33,10 +33,7 @@ fun main() {
         return occurrences.sum()
     }
 
-    val testInput = readInput("Day04_test")
-    val input = readInput("Day04")
-
-    runParts(input, testInput, ::part1, ::part2)
+    runParts(dayNumber = 4, readFromFileFn = ::readInput, partOneFn = ::part1, partTwoFn = ::part2)
 }
 
 private fun List<Int>.addWith(listToAdd: List<Int>): List<Int> {
