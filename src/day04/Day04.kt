@@ -1,7 +1,7 @@
 package day04
 
-import println
 import readInput
+import runParts
 
 fun main() {
     fun part1(input: List<String>): Int {
@@ -36,14 +36,7 @@ fun main() {
     val testInput = readInput("Day04_test")
     val input = readInput("Day04")
 
-    println("Part one test:")
-    part1(testInput).println()
-    println("Part one:")
-    part1(input).println()
-    println("Part two test:")
-    part2(testInput).println()
-    println("Part two:")
-    part2(input).println()
+    runParts(input, testInput, ::part1, ::part2)
 }
 
 private fun List<Int>.addWith(listToAdd: List<Int>): List<Int> {

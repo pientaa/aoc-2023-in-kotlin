@@ -37,3 +37,15 @@ fun Any?.println() = println(this)
  * @return List of trimmed substrings.
  */
 fun String.splitAndTrim(delimiter: Char) = split(delimiter).map { it.trim() }
+
+
+fun <T, R> runParts(input: T, testInput: T, partOne: (T) -> R, partTwo: (T) -> R) {
+    println("Part one test:")
+    println(partOne(testInput))
+    println("Part one:")
+    println(partOne(input))
+    println("Part two test:")
+    println(partTwo(testInput))
+    println("Part two:")
+    println(partTwo(input))
+}

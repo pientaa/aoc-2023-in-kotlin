@@ -1,7 +1,7 @@
 package day05
 
-import println
 import readText
+import runParts
 
 fun main() {
 
@@ -20,14 +20,7 @@ fun main() {
     val testInput = readText("Day05_test")
     val input = readText("Day05")
 
-    println("Part one test:")
-    part1(testInput).println()
-    println("Part one:")
-    part1(input).println()
-    println("Part two test:")
-    part2(testInput).println()
-    println("Part two:")
-    part2(input).println()
+    runParts(input, testInput, ::part1, ::part2)
 }
 
 private fun getTheLowestLocationUsingRanges(almanacParts: List<String>, seeds: List<LongRange>): Long {

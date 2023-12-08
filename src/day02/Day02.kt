@@ -1,7 +1,7 @@
 package day02
 
-import println
 import readInput
+import runParts
 import splitAndTrim
 
 fun main() {
@@ -19,7 +19,7 @@ fun main() {
     val testInput = readInput("Day02_test")
     val input = readInput("Day02")
 
-    part2(input).println()
+    runParts(input, testInput, ::part1, ::part2)
 }
 
 fun List<String>.processGame() = map { line ->
